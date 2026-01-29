@@ -276,7 +276,7 @@ globalkeys = mytable.join(
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
+    awful.key({ altkey, "Control" }, "l", function () os.execute("xset s activate") end,
               {description = "lock screen", group = "hotkeys"}),
 
     -- Show help
@@ -843,3 +843,5 @@ tag.connect_signal("property::selected", backham)
 
 -- }}}
 awful.spawn.with_shell("xrandr --output HDMI-1-0 --auto --right-of eDP")
+awful.spawn.with_shell("xset s 300 5")
+awful.spawn.with_shell("xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock")
